@@ -356,7 +356,7 @@ footer {
   .login__btn {
     border: none;
     background: none;
-    font-size: 1.5rem;
+
     color: inherit;
     cursor: pointer;
     transition: all 0.3s;
