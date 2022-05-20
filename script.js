@@ -42,17 +42,13 @@ const labelSumIn = document.querySelector('.summary__value--in');
 const labelSumOut = document.querySelector('.summary__value--out');
 const labelSumInterest = document.querySelector('.summary__value--interest');
 const labelTimer = document.querySelector('.timer');
-
 const containerApp = document.querySelector('.app');
 const containerMovements = document.querySelector('.movements');
-
 const btnLogin = document.querySelector('.login__btn');
 const btnTransfer = document.querySelector('.form__btn--transfer');
 const btnLoan = document.querySelector('.form__btn--loan');
 const btnClose = document.querySelector('.form__btn--close');
 const btnSort = document.querySelector('.btn--sort');
-
-
 const inputLoginUsername = document.querySelector('.login__input--user');
 const inputLoginPin = document.querySelector('.login__input--pin');
 const inputTransferTo = document.querySelector('.form__input--to');
@@ -62,12 +58,11 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 
-
+// current date 
 const dateFunction = new Date();
 balanceDate.innerHTML = dateFunction.toLocaleDateString();
 
-
-
+// movement display function
 const displayMovements = function (movements, sort) {
   containerMovements.innerHTML = "";
 
@@ -90,7 +85,7 @@ const displayMovements = function (movements, sort) {
 };
 
 
-
+// total balance function
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce(function (prev, current) {
     return prev + current;
@@ -150,6 +145,7 @@ const updateUI = function (acc) {
 
 let currentAccount;
 
+// button login function
 btnLogin.addEventListener("click", function (e) {
   e.preventDefault();
 
@@ -171,6 +167,7 @@ btnLogin.addEventListener("click", function (e) {
 
 })
 
+// button transfer money function
 btnTransfer.addEventListener("click", function (e) {
 
   e.preventDefault();
@@ -185,7 +182,7 @@ btnTransfer.addEventListener("click", function (e) {
   }
 })
 
-
+// button close account function
 btnClose.addEventListener("click", function (e) {
   e.preventDefault();
   if (inputCloseUsername.value === currentAccount.username &&
@@ -201,7 +198,7 @@ btnClose.addEventListener("click", function (e) {
 
 })
 
-
+// button loan function
 btnLoan.addEventListener("click", function (e) {
   e.preventDefault();
   const amount = Number(inputLoanAmount.value);
@@ -215,6 +212,7 @@ btnLoan.addEventListener("click", function (e) {
   inputLoanAmount.value = "";
 
 })
+
 
 let sorted = false;
 btnSort.addEventListener("click", function (e) {
